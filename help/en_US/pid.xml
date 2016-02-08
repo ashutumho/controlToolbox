@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from pid.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="pid" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>pid</refname>
+    <refpurpose>Generate parallel form of PID controller, verify the parallel form of PID controller</refpurpose>
+  </refnamediv>
+
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Kp :</term>
+      <listitem><para> a matrix of double, represents the  Proportional gain of PID controller</para></listitem></varlistentry>
+   <varlistentry><term>Ki :</term>
+      <listitem><para> a matrix of double, represents the  Integral gain of PID controller</para></listitem></varlistentry>
+   <varlistentry><term>Tf :</term>
+      <listitem><para> a matrix of double, represents the Time constant of first order filter of PID controller</para></listitem></varlistentry>
+   <varlistentry><term>Ts:</term>
+      <listitem><para> a double, represents the Sampling timing</para></listitem></varlistentry>
+   <varlistentry><term>sys:</term>
+      <listitem><para> represents the valid form of PID controller</para></listitem></varlistentry>
+   <varlistentry><term>Name :</term>
+      <listitem><para> a string represent  name of  Control system</para></listitem></varlistentry>
+   <varlistentry><term>UserData :</term>
+      <listitem><para> a string represent UserData of control system</para></listitem></varlistentry>
+   <varlistentry><term>Notes :</term>
+      <listitem><para> a string represent Notes about the control system</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+output = pid(Kp,Ki,Kd,Tf) generates the parallel form of PID in continuous domain. The mathematical equation is given below
+   </para>
+   <para>
+<latex>
+\begin{eqnarray}
+\[
+output=K_{p}+K_{i}\frac{1}{s}+\frac{K_{d}s}{T_{f}s+1}
+\]
+\end{eqnarray}
+</latex>
+   </para>
+   <para>
+All the PID parameters (Kp,Ki,Kd,&amp; Tf) must be real number and output is the transfer function obtained by the given PID parameters data.
+output = pid(Kp,Ki,Kd,Tf,Ts)  generates the parallel form of PID in discrete domain and Ts is the sampling timing of the controller. The mathematical equation is given below
+   </para>
+   <para>
+<latex>
+\begin{eqnarray}
+\[
+output=K_{p}+K_{i}Iformula+\frac{K_{d}}{T_{f}+Dformula}
+\]
+\end{eqnarray}
+</latex>
+   </para>
+   <para>
+There are numbers of way to select the sampling formula for discrete time integration and derivation (Iformula,dformula respectively). By default value of the Iformula and Dformula is forward Euler. Other sampling formula is Backward Euler and Trapezoidal. If Dformula is forward Euler and first order derivative filter time constant Tf~=0 then it must satisfy the Tf &gt;Ts/2 for proper derivative filter pole. The following way to select the sample method
+   </para>
+   <para>
+F - Forward Euler
+   </para>
+   <para>
+B - Backward Euler
+   </para>
+   <para>
+T - Trapezoidal
+   </para>
+   <para>
+output = pid(Kp) generates proportional controller in continuous domain
+   </para>
+   <para>
+output = pid(0,Ki) generates integral controller in continuous domain
+   </para>
+   <para>
+output = pid(0,0,Kd) generates derivative controller without derivative filter
+   </para>
+   <para>
+output = pid(0,0,Kd,Tf) generates derivative filer with derivative filter of Tf time constant
+   </para>
+   <para>
+output = pid(Kp,Ki) generates proportional+integral controller in continuous domain
+   </para>
+   <para>
+output = pid(Kp,0,Kd) generates proportional + derivative controller without first order filter in continuous domain
+   </para>
+   <para>
+output = pid(Kp,0,Kd,Tf) generates proportional + derivative controller with first order filter in continuous domain
+   </para>
+   <para>
+output = pid(Kp,Ki,Kd) generates proportional +integral+ derivative controller without first order filter in continuous domain
+   </para>
+   <para>
+output = pid(Kp,Ki,Kd,Tf) generates proportional +integral+ derivative controller with first order filter in continuous domain
+   </para>
+   <para>
+output = pid(Kp,0,0,0,Ts) generates proportional controller in discrete domain
+   </para>
+   <para>
+output = pid(0,Ki,0,0,Ts) generates integarl controller in discrete domain
+   </para>
+   <para>
+output = pid(0,0,Kd,0,Ts) generates derivative without first order filter controller in discrete domain
+   </para>
+   <para>
+output = pid(0,0,Kd,Tf,Ts) generates derivative controller with first order filter in discrete domain
+   </para>
+   <para>
+output = pid(Kp,Ki,0,0,Ts) generates proportiona+Integral  controller in discrete domain
+   </para>
+   <para>
+output = pid(Kp,0,Kd,0,Ts) generates proportional+derivative controller without first order filter in discrete domain
+   </para>
+   <para>
+output = pid(Kp,0,Kd,Tf,Ts) generates proportional+derivative controller with first order filter in discrete domain
+   </para>
+   <para>
+output = pid(Kp,Ki,Kd,Tf,Ts) generates proportional+integral+derivative controller without first order filter in discrete domain
+   </para>
+   <para>
+output = pid(Kp,Ki,Kd,Tf,Ts) generates proportional+integral+derivative controller with first order filter in discrete domain
+   </para>
+   <para>
+output = pid(.......,Ts,'Iformula','__','Dformula','__') generates discrete domain controller with selection of sampling formula for Iformula and Dformula
+   </para>
+   <para>
+output  = pid(sys) checks the given transfer function and verify it
+   </para>
+   <para>
+[output impdata] = pid(.....,'Notes','...','UserData','.....','Notes','....') it adds extra descriptive information about the controller in impdata
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+output = pid(2)
+output = pid(2,3)
+output = pid(2,3,4)
+output = pid(2,3,4,5)
+output = pid(2,0,4)
+output = pid(2,0,4,5)
+output = pid(2,0,0,0,0.1)
+output = pid(2,3,0,0,0.1,'Iformula','B')
+output = pid(2,3,4,0,0.1,'Iformula','B','Dformula','T')
+output = pid(2,3,4,5,0.1,'Iformula','T','Dformula','B')
+s = poly(0,'s'); sys = syslin('c',3*(s+1)*(s+2)/s);
+[output impdata]= pid(sys)
+z = poly(0,'z'); sys = syslin(0.1,(19.146667 - 38.793333*z + 19.66*z^2)/(  1.6 - 3.4*z + 1.8*z^2))
+[output impdata] = pid(sys,'Iformula','T','Dformula','B')
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashutosh Kumar Bhargava</member>
+   </simplelist>
+</refsection>
+</refentry>

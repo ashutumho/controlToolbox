@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from stdpid.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="stdpid" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>stdpid</refname>
+    <refpurpose>Generate standard form of PID controller, verify the standard form of PID controller</refpurpose>
+  </refnamediv>
+
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>Kp :</term>
+      <listitem><para> a matrix of double, represents the  Proportional gain of PID controller. Default value is zero.</para></listitem></varlistentry>
+   <varlistentry><term>Ti :</term>
+      <listitem><para> a matrix of double, represents real and positive Integral time of PID controller. Default value is infinity</para></listitem></varlistentry>
+   <varlistentry><term>Td :</term>
+      <listitem><para> a matrix of double, represents real and positive Derivative time of PID controller. Default value is zero</para></listitem></varlistentry>
+   <varlistentry><term>N :</term>
+      <listitem><para> a matrix of double, represents real and positive devisor of derivative filter. Default value is infinity</para></listitem></varlistentry>
+   <varlistentry><term>Ts:</term>
+      <listitem><para> a double, represents the Sampling timing</para></listitem></varlistentry>
+   <varlistentry><term>sys:</term>
+      <listitem><para> represents the valid form of PID controller</para></listitem></varlistentry>
+   <varlistentry><term>Name :</term>
+      <listitem><para> a string represent  name of  Control system</para></listitem></varlistentry>
+   <varlistentry><term>UserData :</term>
+      <listitem><para> a string represent UserData of control system</para></listitem></varlistentry>
+   <varlistentry><term>Notes :</term>
+      <listitem><para> a string represent Notes about the control system</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+output = pid(Kp,Ti,Td,N) generates the standard form of PID in continuous domain. The mathematical equation is given below
+   </para>
+   <para>
+<latex>
+\begin{eqnarray}
+\[
+output=K_{p}\left(1+\frac{1}{T_{i}}\frac{1}{s}+\frac{T_{d}s}{\frac{T_{d}}{N}s+1}\right)
+\]
+\end{eqnarray}
+</latex>
+   </para>
+   <para>
+All the PID parameters (Kp, Ti,Td &amp; N) must be real number and output is the transfer     function obtained by the given PID parameters data.
+   </para>
+   <para>
+output = pid(Kp,Ti,Td,N,Ts)  generates the standard form of PID in discrete domain and Ts is the sampling timing of the controller. The mathematical equation is given below
+<latex>
+\begin{eqnarray}
+\[
+output=K_{p}\left(1+\frac{1}{T_{i}}Iformula+\frac{T_{d}s}{\frac{T_{d}}{N}+Dformula}\right)
+\]
+\end{eqnarray}
+</latex>
+   </para>
+   <para>
+There are numbers of way to select the sampling formula for discrete time integration and derivation (Iformula,dformula respectively). By default value of the Iformula and Dformula is forward Euler. Other sampling formula is Backward Euler and Trapezoidal. If Dformula is forward Euler and first order derivative filter time constant Tf~=0 then it must satisfy the Td/N &gt;Ts/2 for proper derivative filter pole. The following way to select the sample method
+   </para>
+   <para>
+F - Forward Euler
+   </para>
+   <para>
+B - Backward Euler
+   </para>
+   <para>
+T - Trapezoidal
+   </para>
+   <para>
+output = stdpid(Kp) generates proportional controller in continuous domain
+   </para>
+   <para>
+output = stdpid(Kp,Ti) generates proportional+integral controller in continuous domain
+   </para>
+   <para>
+output = stdpid(Kp,%inf,Td) generates proportional + derivative controller without first order filter in continuous domain
+   </para>
+   <para>
+output = stdpid(Kp,%inf,Td,N) generates proportional + derivative controller with first order filter in continuous domain
+   </para>
+   <para>
+output = stdpid(Kp,Ti,Td,%inf) generates proportional +integral+ derivative controller without first order filter in continuous domain
+   </para>
+   <para>
+output = stdpid(Kp,Ti,Td,N) generates proportional +integral+ derivative controller with first order filter in continuous domain
+   </para>
+   <para>
+output = stdpid(Kp,%inf,0,%inf,Ts) generates proportional controller in discrete domain
+   </para>
+   <para>
+output = stdpid(Kp,Ki,0,%inf,Ts) generates proportiona+Integral  controller in discrete domain
+   </para>
+   <para>
+output = stdpid(Kp,%inf,Td,%inf,Ts) generates proportional+derivative controller without first order filter in discrete domain
+   </para>
+   <para>
+output = stdpid(Kp,%inf,Td,N,Ts) generates proportional+derivative controller with first order filter in discrete domain
+   </para>
+   <para>
+output = stdpid(Kp,Ti,Td,%inf,Ts) generates proportional+integral+derivative controller without first order filter in discrete domain
+   </para>
+   <para>
+output = stdpid(Kp,Ti,Td,N,Ts) generates proportional+integral+derivative controller with first order filter in discrete domain
+   </para>
+   <para>
+output = stdpid(.......,Ts,'Iformula','__','Dformula','__') generates discrete domain controller with selection of sampling formula for Iformula and Dformula
+   </para>
+   <para>
+output  = stdpid(sys) checks the given transfer function and verify it
+   </para>
+   <para>
+[output impdata] =stdpid(.....,'Notes','...','UserData','.....','Notes','....') it adds extra descriptive information about the controller in impdata
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+output = stdpid(2)
+output = stdpid(2,3)
+output = stdpid(2,3,4)
+output = stdpid(2,3,4,5)
+output = stdpid(2,%inf,4)
+output = stdpid(2,%inf,4,5)
+output = stdpid(2,%inf,0,%inf,0.1)
+output = stdpid(2,3,0,%inf,0.1,'Iformula','B')
+output = stdpid(2,3,4,%inf,0.1,'Iformula','B','Dformula','T')
+output = stdpid(2,3,4,5,0.1,'Iformula','T','Dformula','B')
+s = poly(0,'s'); sys = syslin('c',3*(s+1)*(s+2)/s);
+[output impdata] = stdpid(sys)
+z = poly(0,'z'); sys = syslin(0.1,(19.146667 - 38.793333*z + 19.66*z^2)/(  1.6 - 3.4*z + 1.8*z^2))
+[output impdata]= stdpid(sys,'Iformula','T','Dformula','B')
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashutosh Kumar Bhargava</member>
+   </simplelist>
+</refsection>
+</refentry>
