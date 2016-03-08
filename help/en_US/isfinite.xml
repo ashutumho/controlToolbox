@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from isfinite.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="isfinite" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>isfinite</refname>
+    <refpurpose>Checks whether the system has finite coefficients</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   bool = isfinite(sys)
+   bool = isfinite(sys,'elem')
+   bool = isfinite(mat)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>sys :</term>
+      <listitem><para> represents the valid form of state space model or transfer function</para></listitem></varlistentry>
+   <varlistentry><term>mat :</term>
+      <listitem><para> a matrix of double, represents the array, matrix or hyper-matrix</para></listitem></varlistentry>
+   <varlistentry><term>bool :</term>
+      <listitem><para> a boolean, represents the output</para></listitem></varlistentry>
+   <varlistentry><term>elem :</term>
+      <listitem><para> a string, represents the output data presentation</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+bool = isfinite(sys), the output will be 1 when all the coefficient  of the transfer function or state-space is finite.
+bool = isfinite(sys,'elem'), the dimension of the output will be same as the dimension of the sys and each array elements represent the logical response of the respective transfer function or state-space
+bool = isfinite(mat), it checks all the elements of the matrix and produces the output with the same dimension as the matrix.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+mat = [1 2 %inf 0 -%inf]; bool = isfinite(mat)
+s = poly(0,'s') ; sys = syslin('c',1/(s+1)); bool = isfinite(sys)
+sys = =ssrand(2,3,8,list('st',2,5,5)); bool = isfinite(sys)
+bool = isfinite(sys,'elem')
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashutosh Kumar Bhargava</member>
+   </simplelist>
+</refsection>
+</refentry>

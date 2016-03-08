@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from chgFreqUnit.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="chgFreqUnit" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>chgFreqUnit</refname>
+    <refpurpose>Convert frequency unit of the frequency domain data</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   sysfreq = chgFreqUnit(sys,changedfrequnit)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>sys :</term>
+      <listitem><para> a matrix of double, represents the frequency response points of systems</para></listitem></varlistentry>
+   <varlistentry><term>changedfrequnit:</term>
+      <listitem><para> a string , represents the changed frequency unit . The new frequency units are rad/Timeunit,cycles/TimeUnit,rad/s,kHz,MHz,GHz,rpm,. The default frequency unit is rad/TimeUnit.</para></listitem></varlistentry>
+   <varlistentry><term>sysfreq :</term>
+      <listitem><para> a matrix of double, represents the update frequency response points of systems</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+sysfreq = chgFreqUnit(sys,changedfrequnit) updated frequency unit of the sys. The response at corresponding point will be same.
+   </para>
+   <para>
+Example
+sys = frd(1:10,1:10)
+sysfreq = chgFreqUnit(sys,'Khz')
+sysfreq1 = chgFreqUnit(sys,'rpm')
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashutosh Kumar Bhargava</member>
+   </simplelist>
+</refsection>
+</refentry>

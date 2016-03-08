@@ -1,5 +1,5 @@
 
-function [output, impdata ] =  pid(varargin)
+function [output,extdata] =  pid(varargin)
 //Generate parallel form of PID controller, verify the parallel form of PID controller
 //
 //Calling Seqence
@@ -114,7 +114,9 @@ function [output, impdata ] =  pid(varargin)
 //
 //
 //
+         
         [lhs,rhs] = argn(0)
+        //(lhs)
         s = poly(0,'s')
         z = poly(0,'z')
         funcprot(0)
@@ -280,7 +282,7 @@ function [output, impdata ] =  pid(varargin)
                     output_data = hypermat([current_size])
                     output_data(:,:,:,:)=TFdata
                 end
-                output = output_data
+                //output = output_data
 //=======================================================================================================================================================================
         elseif datatype == 1 & inctd == 0 & indtd == 1 then                                                                        //discrete time domain
                 printf('\n Discrete time system\n')
@@ -425,7 +427,7 @@ function [output, impdata ] =  pid(varargin)
                 end
                 output_data.dt = varargin_data(5)
                 sysTs = output_data.dt
-                output = output_data
+                //output = output_data
 //=================================================================================================================================================================================
             elseif datatype == 2 then
                 printf('\n rational data type')
@@ -1366,10 +1368,12 @@ function [output, impdata ] =  pid(varargin)
                     
 //______________________________________________________________________________                    
                 end// identifty that the given function is "c" type or "d" type
-                output = varargin_data(1)
+                //output = varargin_data(1)
         end
 //______________________________________________________________________________
-
+//                //Kp = []
+//                Kp = part(Kp,1)
+//                //disp(Kp)
                 if current_length<=2 then
                     //output_data = hypermat([current_size], pid_function(:,1))
                     Kp = hypermat([current_size],temp_Kp_data(:,1))
@@ -1388,11 +1392,8 @@ function [output, impdata ] =  pid(varargin)
                     Tf = hypermat([current_size])
                     Tf(:,:,:,:) = temp_Tf_data
                 end
-                impdata.Kp = Kp
-                impdata.Ki = Ki
-                impdata.Kd = Kd
-                impdata.Tf = Tf
-                impdata.Ts = sysTs
+                output = output_data
+
 //------------------------------------------------------------------------------
                 if sysTs == 'c' then
                     impdata.Iformula = '[]'
@@ -1405,6 +1406,7 @@ function [output, impdata ] =  pid(varargin)
                         impdata.Iformula = 'Trapezoidal'
                     end
                 end
+                
 //------------------------------------------------------------------------------
                 if sysTs == 'c' then
                     impdata.Dformula = '[]'
@@ -1417,13 +1419,17 @@ function [output, impdata ] =  pid(varargin)
                         impdata.Dformula = 'Trapezoidal'
                     end
                 end
+                
 //------------------------------------------------------------------------------
                 impdata.InputDelay = 0
+                
                 impdata.OutputDelay = 0
+                
 //------------------------------------------------------------------------------
                 Namedata = 0
                 Notesdata = 0
                 Datauser = 0
+                TimeData = 0
                 //Namedata = find( varargin == "Name" )
                 //disp(Namedata)
                 if count_numb < rhs then
@@ -1436,6 +1442,8 @@ function [output, impdata ] =  pid(varargin)
                                 Notesdata = ii
                             elseif varargin(ii) == 'UserData' then
                                 Datauser = ii
+                            elseif varargin(ii) == 'TimeUnit' | varargin(ii) == 'time' then
+                                TimeData = ii
                             end
                         end
                         
@@ -1449,6 +1457,7 @@ function [output, impdata ] =  pid(varargin)
                 else
                     impdata.Name = varargin(Namedata+1)
                 end
+                
 //------------------------------------------------------------------------------                
                 if Notesdata == 0 then
                     impdata.Notes = []
@@ -1457,20 +1466,43 @@ function [output, impdata ] =  pid(varargin)
                 else
                     impdata.Notes = varargin(Notesdata+1)
                 end
+                
 //------------------------------------------------------------------------------                
                 if Datauser == 0 then
                     impdata.UserData = []
                 elseif Datauser + 1 > rhs then
                     impdata.UserData = []
                 else
-                    impdata.UserData = varargin(datauser)
+                    impdata.UserData = varargin(Datauser+1)
                 end
 //------------------------------------------------------------------------------                
-//                disp(temp_Kp_data)
-//                disp(temp_Ki_data)
-//                disp(temp_Kd_data)
-//                disp(temp_Tf_data)
-                
+                if TimeData == 0 | TimeData+1 > rhs then
+                    timeUnit = 'second'
+                elseif TimeData ~= 0 then
+                    timeUnitArray = ["nanoseconds" "nanosecond" "microseconds" "microsecond"  "milliseconds" "millisecond" "seconds" "second" "minutes" "minute" "hours" "hour" "days" "day" "weeks" "week" "months" "month" "years" "year" ]
+                    findTimeUnit = find(timeUnitArray == varargin(TimeData+1))
+                    //disp(findTimeUnit)
+                    if size(findTimeUnit,"r") ~= 0 then
+                        timeUnit = varargin(TimeData+1)
+                    else
+                        error(msprintf(gettext("specified time units is nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, months, years .")))
+                    end
+                    
+                end
+//------------------------------------------------------------------------------                
+                extdata("         Kp") = Kp
+                extdata("         Ki") = Ki
+                extdata("         Kd") = Kd
+                extdata("         Tf") = Tf
+                extdata("         Ts") = sysTs
+                extdata("   TimeUnit") = timeUnit                
+                extdata("   Iformula") = impdata.Iformula
+                extdata("   Dformula") = impdata.Dformula
+                extdata(" InputDelay") = impdata.InputDelay
+                extdata("OutputDelay") = impdata.OutputDelay
+                extdata("       Name") = impdata.Name
+                extdata("      Notes") = impdata.Notes
+                extdata("   UserData") = impdata.UserData
                                 
         
 endfunction

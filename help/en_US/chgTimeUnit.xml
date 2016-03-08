@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from chgTimeUnit.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="chgTimeUnit" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>chgTimeUnit</refname>
+    <refpurpose>Convert time unit of the system</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   systime = chgFreqUnit(sys,changedtimeunit)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>sys :</term>
+      <listitem><para> a matrix of double, represents the frequency response points of systems</para></listitem></varlistentry>
+   <varlistentry><term>changedtimeunit:</term>
+      <listitem><para> a string , represents the changed time unit . The new time units are nanoseconds, microseconds, milliseconds, minutes, hours, days, weeks, months, years. The default time unit is second.</para></listitem></varlistentry>
+   <varlistentry><term>systime :</term>
+      <listitem><para> a matrix of double, represents the update system</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+systime = chgatimeUnit(sys,changedtimeunit) update time  unit of the sys. The response of the system will be same.
+   </para>
+   <para>
+Example
+s = poly(0,'s'); z = poly(0,'z');
+sys = syslin('c',(s+2)/(s^2+3*s+1))
+systime = chgTimeUnit(sys,'hour')
+systime1 = chgTimeUnit(sys,'nanosecond')
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashutosh Kumar Bhargava</member>
+   </simplelist>
+</refsection>
+</refentry>

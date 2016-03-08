@@ -1,9 +1,17 @@
+chgFreqUnit
+chgTimeUnit
+dsort
+esort
 extractpid
 extractstdpid
 findct
 finddt
 findpeakgain
 gaincrossover
+isEmpty
+isfinite
+isproper
 order
 pid
+realp
 stdpid

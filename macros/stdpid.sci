@@ -1,6 +1,6 @@
 
 
-function [output, impdata ] =  stdpid(varargin)
+function [output, extdata ] =  stdpid(varargin)
 //Generate standard form of PID controller, verify the standard form of PID controller
 //Calling Seqence
 //output = pid(Kp)
@@ -1169,6 +1169,7 @@ function [output, impdata ] =  stdpid(varargin)
                 Namedata = 0
                 Notesdata = 0
                 Datauser = 0
+                TimeData = 0
                 //Namedata = find( varargin == "Name" )
                 //disp(Namedata)
                 if count_numb < rhs then
@@ -1181,6 +1182,8 @@ function [output, impdata ] =  stdpid(varargin)
                                 Notesdata = ii
                             elseif varargin(ii) == 'UserData' then
                                 Datauser = ii
+                            elseif varargin(ii) == 'TimeUnit' | varargin(ii) == 'time' then
+                                TimeData = ii
                             end
                         end
                         
@@ -1210,5 +1213,33 @@ function [output, impdata ] =  stdpid(varargin)
                 else
                     impdata.UserData = varargin(datauser)
                 end
-//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------                
+                disp(TimeData)
+                if TimeData == 0 | TimeData+1 > rhs then
+                    timeUnit = 'second'
+                elseif TimeData ~= 0 then
+                    timeUnitArray = ["nanoseconds" "nanosecond" "microseconds" "microsecond"  "milliseconds" "millisecond" "seconds" "second" "minutes" "minute" "hours" "hour" "days" "day" "weeks" "week" "months" "month" "years" "year" ]
+                    findTimeUnit = find(timeUnitArray == varargin(TimeData+1))
+                    //disp(findTimeUnit)
+                    if size(findTimeUnit,"r") ~= 0 then
+                        timeUnit = varargin(TimeData+1)
+                    else
+                        error(msprintf(gettext("specified time units is nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, months, years .")))
+                    end
+                    
+                end
+//------------------------------------------------------------------------------                
+                extdata("         Kp") = Kp
+                extdata("         Ki") = Ki
+                extdata("         Kd") = Kd
+                extdata("          N") = N   
+                extdata("         Ts") = sysTs
+                extdata("   TimeUnit") = timeUnit                
+                extdata("   Iformula") = impdata.Iformula
+                extdata("   Dformula") = impdata.Dformula
+                extdata(" InputDelay") = impdata.InputDelay
+                extdata("OutputDelay") = impdata.OutputDelay
+                extdata("       Name") = impdata.Name
+                extdata("      Notes") = impdata.Notes
+                extdata("   UserData") = impdata.UserData
 endfunction

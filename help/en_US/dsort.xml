@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from dsort.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="dsort" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>dsort</refname>
+    <refpurpose>sort the discrete domain pole by magnitude</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   poldsort = dsort(poles)
+   [plodsort indexnumb] = dsort(poles)
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>poles :</term>
+      <listitem><para>  a matrix of double, represents the  poles of a discrete domain</para></listitem></varlistentry>
+   <varlistentry><term>poldsort :</term>
+      <listitem><para> a matrix of double, represents the  sorted poles of given discrete domain</para></listitem></varlistentry>
+   <varlistentry><term>indexnumb :</term>
+      <listitem><para>  a matrix of double, represents the indices of given discrete domain poles</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+poldsort = dsort(ploes) sort the discrete domain poles in decreasing order  by its magnitude.
+[plodsort indexnumb] = dsort(poles) sort the discrete domain poles and also gives the indices of the given pole
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+poles = [-4 ; 1-%i ; 2 ; 1+%i;-3;-5;-2-%i;-2+%i ]
+poldsort = dsort(poles)
+[plodsort indexnumb] = dsort(poles)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashutosh Kumar Bhargava</member>
+   </simplelist>
+</refsection>
+</refentry>
