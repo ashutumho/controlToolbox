@@ -17,7 +17,61 @@
 
   <refnamediv>
     <refname>isproper</refname>
-    <refpurpose></refpurpose>
+    <refpurpose>finds that the system is proper</refpurpose>
   </refnamediv>
 
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   bool = isproper(sys)
+   bool  = isproper(sys,'elem')
+   
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>sys :</term>
+      <listitem><para> represents matrix of transfer functions,SISO,MIMO systems and state-space functions</para></listitem></varlistentry>
+   <varlistentry><term>bool :</term>
+      <listitem><para> a boolean, represents the output</para></listitem></varlistentry>
+   <varlistentry><term>elem:</term>
+      <listitem><para> a string</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Description</title>
+   <para>
+   </para>
+   <para>
+bool = isproper(sys) the output will be true when the sys will be proper. A system is proper if the number of zero is less than or equal to its number of poles. For MIMO systems individual transfer function must be proper then the output will be true.
+   </para>
+   <para>
+bool = isproper(sys,'elem') if the sys is array type then it will return  logical array of equal dimension of sys.
+   </para>
+   <para>
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+s = poly(0,'s'); sys = syslin('c',1/(s+1));bool = isproper(sys)
+sys = pid(rand(2,2),0,3);
+bool = isproper(sys)
+bool = isproper(sys,'elem')
+sys =  ssrand(2,3,8,list('st',2,5,5)); bool = isproper(sys)
+
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Ashutosh Kumar Bhargava</member>
+   </simplelist>
+</refsection>
 </refentry>

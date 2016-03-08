@@ -44,16 +44,22 @@
 <refsection>
    <title>Description</title>
    <para>
+   </para>
+   <para>
 sysfreq = chgFreqUnit(sys,changedfrequnit) updated frequency unit of the sys. The response at corresponding point will be same.
    </para>
    <para>
-Example
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
 sys = frd(1:10,1:10)
 sysfreq = chgFreqUnit(sys,'Khz')
 sysfreq1 = chgFreqUnit(sys,'rpm')
-   </para>
-   <para>
-</para>
+
+   ]]></programlisting>
 </refsection>
 
 <refsection>

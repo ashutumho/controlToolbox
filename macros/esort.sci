@@ -10,9 +10,13 @@ function [poles , index] =esort(varargin)
 //poles :  a matrix of double, represents the  poles of a continuous domain
 //polesort : a matrix of double, represents the  sorted poles of given continuous domain
 //indexnumb :  a matrix of double, represents the indices of given continuous domain poles
+//
 //Description
+//
 //polesort = esort(ploes) sort the continuous domain poles in decreasing order  by its real part.
+//
 // [ploesort indexnumb] = esort(poles) sort the continuous domain poles and also gives the indices of the given pole
+//
 //Examples
 //poles = [-4 ; 1-%i ; 2 ; 1+%i;-3;-5;-2-%i;-2+%i ]
 //polesort = esort(poles)

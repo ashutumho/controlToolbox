@@ -11,9 +11,10 @@ function output = chgTimeUnit(varargin)
 //systime : a matrix of double, represents the update system 
 //
 //Description
+//
 // systime = chgatimeUnit(sys,changedtimeunit) update time  unit of the sys. The response of the system will be same.
 //
-//Example
+//Examples
 //s = poly(0,'s'); z = poly(0,'z');
 //sys = syslin('c',(s+2)/(s^2+3*s+1))
 //systime = chgTimeUnit(sys,'hour')

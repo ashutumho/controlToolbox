@@ -10,9 +10,10 @@ function output =chgFreqUnit(varargin)
 //sysfreq : a matrix of double, represents the update frequency response points of systems
 //
 //Description
+//
 // sysfreq = chgFreqUnit(sys,changedfrequnit) updated frequency unit of the sys. The response at corresponding point will be same.
 //
-//Example
+//Examples
 //sys = frd(1:10,1:10)
 //sysfreq = chgFreqUnit(sys,'Khz')
 //sysfreq1 = chgFreqUnit(sys,'rpm')

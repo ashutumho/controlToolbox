@@ -1,5 +1,32 @@
 function output = isproper(varargin)
-    
+//finds that the system is proper
+//
+//Calling Sequence
+//bool = isproper(sys)
+//bool  = isproper(sys,'elem')
+//
+//Parameters
+//sys : represents matrix of transfer functions,SISO,MIMO systems and state-space functions
+//bool : a boolean, represents the output
+//elem: a string
+//
+//Description 
+//
+// bool = isproper(sys) the output will be true when the sys will be proper. A system is proper if the number of zero is less than or equal to its number of poles. For MIMO systems individual transfer function must be proper then the output will be true. 
+//
+//bool = isproper(sys,'elem') if the sys is array type then it will return  logical array of equal dimension of sys.
+//
+//Examples
+//s = poly(0,'s'); sys = syslin('c',1/(s+1));bool = isproper(sys)
+//sys = pid(rand(2,2),0,3); 
+//bool = isproper(sys)
+//bool = isproper(sys,'elem')
+//sys =  ssrand(2,3,8,list('st',2,5,5)); bool = isproper(sys)
+//
+//Authors
+//Ashutosh Kumar Bhargava     
+//
+//
     [lhs,rhs]=argn(0)
     if rhs == 0 then
         error(msprintf(gettext("Function has no input argument..")))
@@ -13,7 +40,10 @@ function output = isproper(varargin)
     end
     
     sysData = varargin(1)
-    elemData = varargin(2)
+    if rhs == 2 then
+        elemData = varargin(2)
+    end
+    
     
     select typeof(sysData)
     case "st" then

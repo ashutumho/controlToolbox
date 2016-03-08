@@ -45,8 +45,14 @@
 <refsection>
    <title>Description</title>
    <para>
+   </para>
+   <para>
 polesort = esort(ploes) sort the continuous domain poles in decreasing order  by its real part.
+   </para>
+   <para>
 [ploesort indexnumb] = esort(poles) sort the continuous domain poles and also gives the indices of the given pole
+   </para>
+   <para>
 </para>
 </refsection>
 

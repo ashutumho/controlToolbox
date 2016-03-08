@@ -10,9 +10,13 @@ function [poles , index] =dsort(varargin)
 //poles :  a matrix of double, represents the  poles of a discrete domain
 //poldsort : a matrix of double, represents the  sorted poles of given discrete domain
 //indexnumb :  a matrix of double, represents the indices of given discrete domain poles
+//
 //Description
+//
 //poldsort = dsort(ploes) sort the discrete domain poles in decreasing order  by its magnitude.
+//
 // [plodsort indexnumb] = dsort(poles) sort the discrete domain poles and also gives the indices of the given pole
+//
 //Examples
 //poles = [-4 ; 1-%i ; 2 ; 1+%i;-3;-5;-2-%i;-2+%i ]
 //poldsort = dsort(poles)

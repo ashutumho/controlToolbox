@@ -45,8 +45,14 @@
 <refsection>
    <title>Description</title>
    <para>
+   </para>
+   <para>
 poldsort = dsort(ploes) sort the discrete domain poles in decreasing order  by its magnitude.
+   </para>
+   <para>
 [plodsort indexnumb] = dsort(poles) sort the discrete domain poles and also gives the indices of the given pole
+   </para>
+   <para>
 </para>
 </refsection>
 

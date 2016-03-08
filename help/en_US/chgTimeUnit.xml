@@ -44,17 +44,23 @@
 <refsection>
    <title>Description</title>
    <para>
+   </para>
+   <para>
 systime = chgatimeUnit(sys,changedtimeunit) update time  unit of the sys. The response of the system will be same.
    </para>
    <para>
-Example
+</para>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
 s = poly(0,'s'); z = poly(0,'z');
 sys = syslin('c',(s+2)/(s^2+3*s+1))
 systime = chgTimeUnit(sys,'hour')
 systime1 = chgTimeUnit(sys,'nanosecond')
-   </para>
-   <para>
-</para>
+
+   ]]></programlisting>
 </refsection>
 
 <refsection>

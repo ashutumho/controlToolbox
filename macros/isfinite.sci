@@ -13,14 +13,17 @@ function output =isfinite(varargin)
 //elem : a string, represents the output data presentation    
 //
 //Description
+//
 //bool = isfinite(sys), the output will be 1 when all the coefficient  of the transfer function or state-space is finite.
+//
 //bool = isfinite(sys,'elem'), the dimension of the output will be same as the dimension of the sys and each array elements represent the logical response of the respective transfer function or state-space
+//
 //bool = isfinite(mat), it checks all the elements of the matrix and produces the output with the same dimension as the matrix. 
 //
 //Examples
 // mat = [1 2 %inf 0 -%inf]; bool = isfinite(mat)
 //s = poly(0,'s') ; sys = syslin('c',1/(s+1)); bool = isfinite(sys)
-//sys = =ssrand(2,3,8,list('st',2,5,5)); bool = isfinite(sys)
+//sys = ssrand(2,3,8,list('st',2,5,5)); bool = isfinite(sys)
 //bool = isfinite(sys,'elem') 
 //
 //Authors
