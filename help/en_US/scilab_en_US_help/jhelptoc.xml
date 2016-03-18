@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN" "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+<toc version="1.0">
+<tocitem target="index" text="Control Toolbox">
+<tocitem target="section_9a9d8b79d75917457b288751bf390fdd" text="Control Toolbox">
+<tocitem target="chgFreqUnit" text="chgFreqUnit"/>
+<tocitem target="chgTimeUnit" text="chgTimeUnit"/>
+<tocitem target="dsort" text="dsort"/>
+<tocitem target="esort" text="esort"/>
+<tocitem target="extractpid" text="extractpid"/>
+<tocitem target="extractstdpid" text="extractstdpid"/>
+<tocitem target="findct" text="findct"/>
+<tocitem target="finddt" text="finddt"/>
+<tocitem target="isEmpty" text="isEmpty"/>
+<tocitem target="isfinite" text="isfinite"/>
+<tocitem target="isproper" text="isproper"/>
+<tocitem target="order" text="order"/>
+<tocitem target="pid" text="pid"/>
+<tocitem target="stdpid" text="stdpid"/>
+</tocitem>
+</tocitem>
+</toc>

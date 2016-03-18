@@ -1,0 +1,107 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>extractpid</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="esort.html">&lt;&lt; esort</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="extractstdpid.html">extractstdpid &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Control Toolbox</a> &gt;&gt; <a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a> &gt; extractpid</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">extractpid</h1>
+    <p class="refpurpose">Extract the parallel PID parameters from the transfer function</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">output</span><span class="default"> = </span><span class="functionid">extractpid</span><span class="default">(</span><span class="default">sys</span><span class="default">)</span>
+<span class="default">[</span><span class="default">Kp</span><span class="default">,</span><span class="default">Ki</span><span class="default">,</span><span class="default">Kd</span><span class="default">,</span><span class="default">Tf</span><span class="default">] = </span><span class="functionid">extractpid</span><span class="default">(</span><span class="default">sys</span><span class="default">)</span>
+<span class="default">[</span><span class="default">Kp</span><span class="default">,</span><span class="default">Ki</span><span class="default">,</span><span class="default">Kd</span><span class="default">,</span><span class="default">Tf</span><span class="default">,</span><span class="default">Ts</span><span class="default">] = </span><span class="functionid">extractpid</span><span class="default">(</span><span class="default">sys</span><span class="default">)</span>
+<span class="default">[</span><span class="default">Kp</span><span class="default">,</span><span class="default">Ki</span><span class="default">,</span><span class="default">Kd</span><span class="default">,</span><span class="default">Tf</span><span class="default">,</span><span class="default">Ts</span><span class="default">] = </span><span class="functionid">extractpid</span><span class="default">(</span><span class="default">sys</span><span class="default">,</span><span class="default">indexVector</span><span class="default">)</span>
+<span class="default">[</span><span class="default">Kp</span><span class="default">,</span><span class="default">Ki</span><span class="default">,</span><span class="default">Kd</span><span class="default">,</span><span class="default">Tf</span><span class="default">,</span><span class="default">Ts</span><span class="default">] = </span><span class="functionid">extractpid</span><span class="default">(</span><span class="default">sys</span><span class="default">,</span><span class="default">indexNumber</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">sys :</span>
+      <dd><p class="para">a matrix of double, represents the transfer function of parallel PID</p></dd></dt>
+   <dt><span class="term">indexVector:</span>
+      <dd><p class="para">a row vector of integer, represents the entry at the vector of array of the sys</p></dd></dt>
+   <dt><span class="term">indexNumber:</span>
+      <dd><p class="para">a double, represents the index number of the array of sys when it arranged in serially</p></dd></dt>
+   <dt><span class="term">Kp :</span>
+      <dd><p class="para">a matrix of double, represents the  Proportional gain of transfer function</p></dd></dt>
+   <dt><span class="term">Ki :</span>
+      <dd><p class="para">a matrix of double, represents the  Integral gain of transfer function</p></dd></dt>
+   <dt><span class="term">Tf :</span>
+      <dd><p class="para">a matrix of double, represents the Time constant of first order filter of transfer function</p></dd></dt>
+   <dt><span class="term">Ts:</span>
+      <dd><p class="para">a double, represents the Sampling timing</p></dd></dt>
+   <dt><span class="term">output :</span>
+      <dd><p class="para">a matrix of double, represents only Proportional gain of transfer function</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"></p>
+   <p class="para">output = extractpid(sys) extract the PID parameters and returns only the proportional gain</p>
+   <p class="para">[Kp,Ki,Kd,Tf] = extractpid(sys) extract the PID parameters in continuous domain and returns proportional, integral and derivative gain with time constant of first order filter</p>
+   <p class="para">[Kp,Ki,Kd,Tf,Ts] = extractpid(sys) extract the PID parameters in discrete domain and returns proportional, integral and derivative gain with time constant of first order filter</p>
+   <p class="para">[Kp,Ki,Kd,Tf,Ts] = extractpid(sys,indexVector) extract the PID parameters and returns proportional, integral and derivative gain with time constant of first order filter at that row vector</p>
+   <p class="para">[Kp,Ki,Kd,Tf,Ts] = extractPID(sys,indexVector) extract the PID parameters and returns proportional, integral and derivative gain with time constant of first order filter at that index number</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">s</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://poly">poly</a><span class="scilabopenclose">(</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">s</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">sys</span> <span class="scilaboperator">=</span> <a class="scilabmacro" href="scilab://syslin">syslin</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">c</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilaboperator">*</span><span class="scilabopenclose">(</span><span class="scilabid">s</span><span class="scilaboperator">+</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilaboperator">*</span><span class="scilabopenclose">(</span><span class="scilabid">s</span><span class="scilaboperator">+</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilaboperator">/</span><span class="scilabid">s</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">extractpid</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabopenclose">)</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Kp</span><span class="scilabdefault">,</span><span class="scilabid">Ki</span><span class="scilabdefault">,</span><span class="scilabid">Kd</span><span class="scilabdefault">,</span><span class="scilabid">Tf</span><span class="scilabdefault">,</span><span class="scilabid">Ts</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">extractpid</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabopenclose">)</span>
+<span class="scilabid">z</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://poly">poly</a><span class="scilabopenclose">(</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">z</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">sys</span> <span class="scilaboperator">=</span> <a class="scilabmacro" href="scilab://syslin">syslin</a><span class="scilabopenclose">(</span><span class="scilabnumber">0.1</span><span class="scilabdefault">,</span><span class="scilabopenclose">(</span><span class="scilabnumber">7</span><span class="scilaboperator">*</span><span class="scilabid">z</span><span class="scilaboperator">-</span><span class="scilabnumber">6.9</span><span class="scilabopenclose">)</span><span class="scilaboperator">/</span><span class="scilabopenclose">(</span><span class="scilabnumber">4</span><span class="scilaboperator">*</span><span class="scilabid">z</span><span class="scilaboperator">-</span><span class="scilabnumber">3.9</span><span class="scilabopenclose">)</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Kp</span><span class="scilabdefault">,</span><span class="scilabid">Ki</span><span class="scilabdefault">,</span><span class="scilabid">Kd</span><span class="scilabdefault">,</span><span class="scilabid">Tf</span><span class="scilabdefault">,</span><span class="scilabid">Ts</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">extractpid</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabopenclose">)</span>
+<span class="scilabid">sys</span> <span class="scilaboperator">=</span> <span class="scilabid">pid</span><span class="scilabopenclose">(</span><a class="scilabcommand" href="scilab://rand">rand</a><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabopenclose">)</span><span class="scilabdefault">,</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Kp</span><span class="scilabdefault">,</span><span class="scilabid">Ki</span><span class="scilabdefault">,</span><span class="scilabid">Kd</span><span class="scilabdefault">,</span><span class="scilabid">Tf</span><span class="scilabdefault">,</span><span class="scilabid">Ts</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">extractpid</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabdefault">,</span><span class="scilabopenclose">[</span><span class="scilabnumber">1</span> <span class="scilabnumber">3</span> <span class="scilabnumber">2</span><span class="scilabopenclose">]</span><span class="scilabopenclose">)</span>
+<span class="scilabopenclose">[</span><span class="scilabid">Kp</span><span class="scilabdefault">,</span><span class="scilabid">Ki</span><span class="scilabdefault">,</span><span class="scilabid">Kd</span><span class="scilabdefault">,</span><span class="scilabid">Tf</span><span class="scilabdefault">,</span><span class="scilabid">Ts</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">extractpid</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Ashutosh Kumar Bhargava</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="esort.html">&lt;&lt; esort</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="extractstdpid.html">extractstdpid &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

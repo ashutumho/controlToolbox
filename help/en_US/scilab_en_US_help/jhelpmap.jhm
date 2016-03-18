@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+<map version="1.0">
+<mapID target="index" url="index.html"/>
+<mapID target="section_9a9d8b79d75917457b288751bf390fdd" url="section_9a9d8b79d75917457b288751bf390fdd.html"/>
+<mapID target="chgFreqUnit" url="chgFreqUnit.html"/>
+<mapID target="chgTimeUnit" url="chgTimeUnit.html"/>
+<mapID target="dsort" url="dsort.html"/>
+<mapID target="esort" url="esort.html"/>
+<mapID target="extractpid" url="extractpid.html"/>
+<mapID target="extractstdpid" url="extractstdpid.html"/>
+<mapID target="findct" url="findct.html"/>
+<mapID target="finddt" url="finddt.html"/>
+<mapID target="isEmpty" url="isEmpty.html"/>
+<mapID target="isfinite" url="isfinite.html"/>
+<mapID target="isproper" url="isproper.html"/>
+<mapID target="order" url="order.html"/>
+<mapID target="pid" url="pid.html"/>
+<mapID target="stdpid" url="stdpid.html"/>
+</map>

@@ -1,0 +1,84 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>chgFreqUnit</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">&lt;&lt; Control Toolbox</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="chgTimeUnit.html">chgTimeUnit &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Control Toolbox</a> &gt;&gt; <a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a> &gt; chgFreqUnit</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">chgFreqUnit</h1>
+    <p class="refpurpose">Convert frequency unit of the frequency domain data</p></div>
+
+
+<div class="refsynopsisdiv"><h3 class="title">Calling Sequence</h3>
+   <div class="synopsis"><pre><span class="default">sysfreq</span><span class="default"> = </span><span class="functionid">chgFreqUnit</span><span class="default">(</span><span class="default">sys</span><span class="default">,</span><span class="default">changedfrequnit</span><span class="default">)</span></pre></div></div>
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">sys :</span>
+      <dd><p class="para">a matrix of double, represents the frequency response points of systems</p></dd></dt>
+   <dt><span class="term">changedfrequnit:</span>
+      <dd><p class="para">a string , represents the changed frequency unit . The new frequency units are rad/Timeunit,cycles/TimeUnit,rad/s,kHz,MHz,GHz,rpm,. The default frequency unit is rad/TimeUnit.</p></dd></dt>
+   <dt><span class="term">sysfreq :</span>
+      <dd><p class="para">a matrix of double, represents the update frequency response points of systems</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para"></p>
+   <p class="para">sysfreq = chgFreqUnit(sys,changedfrequnit) updated frequency unit of the sys. The response at corresponding point will be same.</p>
+   <p class="para"></p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">sys</span> <span class="scilaboperator">=</span> <span class="scilabid">frd</span><span class="scilabopenclose">(</span><span class="scilabnumber">1</span><span class="scilabspecial">:</span><span class="scilabnumber">10</span><span class="scilabdefault">,</span><span class="scilabnumber">1</span><span class="scilabspecial">:</span><span class="scilabnumber">10</span><span class="scilabopenclose">)</span>
+<span class="scilabid">sysfreq</span> <span class="scilaboperator">=</span> <span class="scilabid">chgFreqUnit</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Khz</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span>
+<span class="scilabid">sysfreq1</span> <span class="scilaboperator">=</span> <span class="scilabid">chgFreqUnit</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">rpm</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Ashutosh Kumar Bhargava</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">&lt;&lt; Control Toolbox</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="chgTimeUnit.html">chgTimeUnit &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

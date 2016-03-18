@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a1d8433e71e7a7befaf69c8fbaf803b05 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/chgFreqUnit.xml">
+<!ENTITY ae3b65d7a0b16f3c2e2fa669509e16d06 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/chgTimeUnit.xml">
+<!ENTITY a2877d8bde5f92228525d887b68e116e1 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/dsort.xml">
+<!ENTITY aa7fe0606d83fffb0bf6ccabe901d0af9 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/esort.xml">
+<!ENTITY ab74f7349514bf2de300b5342c9058387 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/extractpid.xml">
+<!ENTITY a03c6f25a031376475f1d2b509a657ffb SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/extractstdpid.xml">
+<!ENTITY ae373c7cbfce6fc985ffa889c93c29f0f SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/findct.xml">
+<!ENTITY a954ac36d26f90d4908879f69141779e7 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/finddt.xml">
+<!ENTITY af5ecb863dbd7cf928931d656e35bdd77 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/isEmpty.xml">
+<!ENTITY a09937b08f9c7306d428e44cd04d426d7 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/isfinite.xml">
+<!ENTITY a1e8e1c397fc5f6b8553d0d33da347104 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/isproper.xml">
+<!ENTITY a35c50f09b058d20343f096deea9b3110 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/order.xml">
+<!ENTITY a44afe0350da8779364dc561fd626c58f SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/pid.xml">
+<!ENTITY a12de4a50ed79ddeb5b253fdbd9666105 SYSTEM "file:///C:/Users/Ashutosh Kumar/Desktop/toolbox_skeleton-6.0.0-2-src/controlToolbox/help/en_US/stdpid.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='control_toolbox_manual'>
+    <title>Control Toolbox</title>
+  </info>
+
+<part xml:id='section_9a9d8b79d75917457b288751bf390fdd'>
+<title>Control Toolbox</title>
+&a1d8433e71e7a7befaf69c8fbaf803b05;
+&ae3b65d7a0b16f3c2e2fa669509e16d06;
+&a2877d8bde5f92228525d887b68e116e1;
+&aa7fe0606d83fffb0bf6ccabe901d0af9;
+&ab74f7349514bf2de300b5342c9058387;
+&a03c6f25a031376475f1d2b509a657ffb;
+&ae373c7cbfce6fc985ffa889c93c29f0f;
+&a954ac36d26f90d4908879f69141779e7;
+&af5ecb863dbd7cf928931d656e35bdd77;
+&a09937b08f9c7306d428e44cd04d426d7;
+&a1e8e1c397fc5f6b8553d0d33da347104;
+&a35c50f09b058d20343f096deea9b3110;
+&a44afe0350da8779364dc561fd626c58f;
+&a12de4a50ed79ddeb5b253fdbd9666105;
+</part>
+</book>

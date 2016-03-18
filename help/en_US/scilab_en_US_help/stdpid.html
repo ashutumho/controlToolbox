@@ -1,0 +1,123 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>stdpid</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="pid.html">&lt;&lt; pid</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path"><a href="index.html">Control Toolbox</a> &gt;&gt; <a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a> &gt; stdpid</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">stdpid</h1>
+    <p class="refpurpose">Generate standard form of PID controller, verify the standard form of PID controller</p></div>
+
+
+<div class="refsection"><h3 class="title">Parameters</h3>
+   <dl><dt><span class="term">Kp :</span>
+      <dd><p class="para">a matrix of double, represents the  Proportional gain of PID controller. Default value is zero.</p></dd></dt>
+   <dt><span class="term">Ti :</span>
+      <dd><p class="para">a matrix of double, represents real and positive Integral time of PID controller. Default value is infinity</p></dd></dt>
+   <dt><span class="term">Td :</span>
+      <dd><p class="para">a matrix of double, represents real and positive Derivative time of PID controller. Default value is zero</p></dd></dt>
+   <dt><span class="term">N :</span>
+      <dd><p class="para">a matrix of double, represents real and positive devisor of derivative filter. Default value is infinity</p></dd></dt>
+   <dt><span class="term">Ts:</span>
+      <dd><p class="para">a double, represents the Sampling timing</p></dd></dt>
+   <dt><span class="term">sys:</span>
+      <dd><p class="para">represents the valid form of PID controller</p></dd></dt>
+   <dt><span class="term">Name :</span>
+      <dd><p class="para">a string represent  name of  Control system</p></dd></dt>
+   <dt><span class="term">UserData :</span>
+      <dd><p class="para">a string represent UserData of control system</p></dd></dt>
+   <dt><span class="term">Notes :</span>
+      <dd><p class="para">a string represent Notes about the control system</p></dd></dt></dl></div>
+
+<div class="refsection"><h3 class="title">Description</h3>
+   <p class="para">output = pid(Kp,Ti,Td,N) generates the standard form of PID in continuous domain. The mathematical equation is given below</p>
+   <p class="para"><span><img src='./_LaTeX_stdpid.xml_1.png' style='position:relative;top:25px;width:270px;height:58px'/></span></p>
+   <p class="para">All the PID parameters (Kp, Ti,Td &amp; N) must be real number and output is the transfer     function obtained by the given PID parameters data.</p>
+   <p class="para">output = pid(Kp,Ti,Td,N,Ts)  generates the standard form of PID in discrete domain and Ts is the sampling timing of the controller. The mathematical equation is given below
+<span><img src='./_LaTeX_stdpid.xml_2.png' style='position:relative;top:25px;width:378px;height:58px'/></span></p>
+   <p class="para">There are numbers of way to select the sampling formula for discrete time integration and derivation (Iformula,dformula respectively). By default value of the Iformula and Dformula is forward Euler. Other sampling formula is Backward Euler and Trapezoidal. If Dformula is forward Euler and first order derivative filter time constant Tf~=0 then it must satisfy the Td/N &gt;Ts/2 for proper derivative filter pole. The following way to select the sample method</p>
+   <p class="para">F - Forward Euler</p>
+   <p class="para">B - Backward Euler</p>
+   <p class="para">T - Trapezoidal</p>
+   <p class="para">output = stdpid(Kp) generates proportional controller in continuous domain</p>
+   <p class="para">output = stdpid(Kp,Ti) generates proportional+integral controller in continuous domain</p>
+   <p class="para">output = stdpid(Kp,%inf,Td) generates proportional + derivative controller without first order filter in continuous domain</p>
+   <p class="para">output = stdpid(Kp,%inf,Td,N) generates proportional + derivative controller with first order filter in continuous domain</p>
+   <p class="para">output = stdpid(Kp,Ti,Td,%inf) generates proportional +integral+ derivative controller without first order filter in continuous domain</p>
+   <p class="para">output = stdpid(Kp,Ti,Td,N) generates proportional +integral+ derivative controller with first order filter in continuous domain</p>
+   <p class="para">output = stdpid(Kp,%inf,0,%inf,Ts) generates proportional controller in discrete domain</p>
+   <p class="para">output = stdpid(Kp,Ki,0,%inf,Ts) generates proportiona+Integral  controller in discrete domain</p>
+   <p class="para">output = stdpid(Kp,%inf,Td,%inf,Ts) generates proportional+derivative controller without first order filter in discrete domain</p>
+   <p class="para">output = stdpid(Kp,%inf,Td,N,Ts) generates proportional+derivative controller with first order filter in discrete domain</p>
+   <p class="para">output = stdpid(Kp,Ti,Td,%inf,Ts) generates proportional+integral+derivative controller without first order filter in discrete domain</p>
+   <p class="para">output = stdpid(Kp,Ti,Td,N,Ts) generates proportional+integral+derivative controller with first order filter in discrete domain</p>
+   <p class="para">output = stdpid(.......,Ts,&#0039;Iformula&#0039;,&#0039;__&#0039;,&#0039;Dformula&#0039;,&#0039;__&#0039;) generates discrete domain controller with selection of sampling formula for Iformula and Dformula</p>
+   <p class="para">output  = stdpid(sys) checks the given transfer function and verify it</p>
+   <p class="para">[output impdata] =stdpid(.....,&#0039;Notes&#0039;,&#0039;...&#0039;,&#0039;UserData&#0039;,&#0039;.....&#0039;,&#0039;Notes&#0039;,&#0039;....&#0039;) it adds extra descriptive information about the controller in impdata</p></div>
+
+<div class="refsection"><h3 class="title">Examples</h3>
+   <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabconstants">%inf</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabconstants">%inf</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabconstants">%inf</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabconstants">%inf</span><span class="scilabdefault">,</span><span class="scilabnumber">0.1</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabconstants">%inf</span><span class="scilabdefault">,</span><span class="scilabnumber">0.1</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Iformula</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">B</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabdefault">,</span><span class="scilabconstants">%inf</span><span class="scilabdefault">,</span><span class="scilabnumber">0.1</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Iformula</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">B</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Dformula</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">T</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span>
+<span class="scilabid">output</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabnumber">2</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilabdefault">,</span><span class="scilabnumber">4</span><span class="scilabdefault">,</span><span class="scilabnumber">5</span><span class="scilabdefault">,</span><span class="scilabnumber">0.1</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Iformula</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">T</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Dformula</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">B</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span>
+<span class="scilabid">s</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://poly">poly</a><span class="scilabopenclose">(</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">s</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">sys</span> <span class="scilaboperator">=</span> <a class="scilabmacro" href="scilab://syslin">syslin</a><span class="scilabopenclose">(</span><span class="scilabstring">&#0039;</span><span class="scilabstring">c</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabnumber">3</span><span class="scilaboperator">*</span><span class="scilabopenclose">(</span><span class="scilabid">s</span><span class="scilaboperator">+</span><span class="scilabnumber">1</span><span class="scilabopenclose">)</span><span class="scilaboperator">*</span><span class="scilabopenclose">(</span><span class="scilabid">s</span><span class="scilaboperator">+</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilaboperator">/</span><span class="scilabid">s</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span>
+<span class="scilabopenclose">[</span><span class="scilabid">output</span> <span class="scilabid">impdata</span><span class="scilabopenclose">]</span> <span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabopenclose">)</span>
+<span class="scilabid">z</span> <span class="scilaboperator">=</span> <a class="scilabcommand" href="scilab://poly">poly</a><span class="scilabopenclose">(</span><span class="scilabnumber">0</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">z</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span><span class="scilabdefault">;</span> <span class="scilabid">sys</span> <span class="scilaboperator">=</span> <a class="scilabmacro" href="scilab://syslin">syslin</a><span class="scilabopenclose">(</span><span class="scilabnumber">0.1</span><span class="scilabdefault">,</span><span class="scilabopenclose">(</span><span class="scilabnumber">19.146667</span> <span class="scilaboperator">-</span> <span class="scilabnumber">38.793333</span><span class="scilaboperator">*</span><span class="scilabid">z</span> <span class="scilaboperator">+</span> <span class="scilabnumber">19.66</span><span class="scilaboperator">*</span><span class="scilabid">z</span><span class="scilaboperator">^</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilaboperator">/</span><span class="scilabopenclose">(</span>  <span class="scilabnumber">1.6</span> <span class="scilaboperator">-</span> <span class="scilabnumber">3.4</span><span class="scilaboperator">*</span><span class="scilabid">z</span> <span class="scilaboperator">+</span> <span class="scilabnumber">1.8</span><span class="scilaboperator">*</span><span class="scilabid">z</span><span class="scilaboperator">^</span><span class="scilabnumber">2</span><span class="scilabopenclose">)</span><span class="scilabopenclose">)</span>
+<span class="scilabopenclose">[</span><span class="scilabid">output</span> <span class="scilabid">impdata</span><span class="scilabopenclose">]</span><span class="scilaboperator">=</span> <span class="scilabid">stdpid</span><span class="scilabopenclose">(</span><span class="scilabid">sys</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Iformula</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">T</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">Dformula</span><span class="scilabstring">&#0039;</span><span class="scilabdefault">,</span><span class="scilabstring">&#0039;</span><span class="scilabstring">B</span><span class="scilabstring">&#0039;</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+
+<div class="refsection"><h3 class="title">Authors</h3>
+   <ul class="itemizedlist"><li class="member">Ashutosh Kumar Bhargava</li></ul></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="pid.html">&lt;&lt; pid</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_9a9d8b79d75917457b288751bf390fdd.html">Control Toolbox</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>
